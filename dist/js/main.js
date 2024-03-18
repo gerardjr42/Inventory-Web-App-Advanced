@@ -45,3 +45,7 @@ const modeText = body.$(".mode-text");
 modeSwitch.on("click", () => {
   body.classList.toggle("dark");
 });
+
+toggle.on("click", () => {
+  sidebar.classList.toggle("close");
+});
