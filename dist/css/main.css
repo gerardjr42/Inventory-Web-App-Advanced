@@ -12,15 +12,36 @@
 *:after {
   box-sizing: border-box;
 }
+:root {
+  --body-color1: #000f0a;
+  --body-color2: #000F0A;
+  --primary-color: #7DFFAF;
+  --text-color: #ffffff;
+  --toggle-color: #000000;
+  --sidebar-color1: #002a1c;
+  --sidebar-color2: #000f0a;
+}
 
 
+/* Light mode */
 body {
   height: 100vh;
-  background: linear-gradient(270deg, #000f0a, #000F0A, #000f0a);
+  background: linear-gradient(270deg, var(--body-color1), var(--body-color2), var(--body-color1));
   background-size: 400% 400%;
   animation: backgroundSlide 35s ease infinite;
-  color: white;
-  font-family: Helvetica Now Text, Helvetica, Arial, sans-serif;;
+  color: var(--text-color);
+  font-family: Helvetica Now Text, Helvetica, Arial, sans-serif;
+}
+
+/* Dark mode */
+body.dark {
+  --body-color1: #ffffff;
+  --body-color2: #ffffff;
+  --primary-color: #7DFFAF;
+  --text-color: #000000;
+  --toggle-color: #ffffff;
+  --sidebar-color1: #30b88a;
+  --sidebar-color2: #035539;
 }
 
 header {
@@ -52,7 +73,7 @@ header {
   height: 100%;
   width: 250px;
   padding: 10px 14px;
-  background: linear-gradient(270deg, #002a1c, #000f0a);
+  background: linear-gradient(270deg, var(--sidebar-color1), var(--sidebar-color2));
 }
 
 .sidebar__img img {
@@ -80,7 +101,7 @@ header {
   transform: translateY(-50%);
   height: 25px;
   width: 25px;
-  background: #7DFFAF;
+  background: var(--primary-color);
   border-radius: 50%;
 }
 
@@ -93,7 +114,7 @@ header {
 
   a {
     text-decoration: none;
-    color: white;
+    color: var(--text-color);
     height: 100%;
     display: flex;
     align-items: center;
@@ -101,7 +122,7 @@ header {
   }
 
   a:hover {
-    background: #7DFFAF;
+    background: var(--primary-color);
     border-radius: 7px;
     width: 100%;
     height: 100%;
@@ -118,7 +139,7 @@ header {
 
 
 .nav-text {
-  color: white;
+  color: var(--text-color);
   margin-left: 20px;
 }
 
@@ -167,14 +188,14 @@ header {
   align-items: center;
   justify-content: center;
   height: 100%;
-  min-width: 60px;
+  min-width: 70px;
 }
 
 .switch {
   position: relative;
   height: 22px;
   width: 44px;
-  background: white;
+  background: var(--text-color);
   border-radius: 25px;;
 }
 
@@ -187,8 +208,13 @@ header {
   top: 50%;
   left: 5px;
   transform: translateY(-50%);
-  background: black;
+  background: var(--toggle-color);
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+body.dark .switch::before {
+  left: 24px;
 }
 
 /* ----Main---- */
@@ -199,6 +225,6 @@ header {
 .main-title {
   font-size: 7rem;
   font-weight: 400;
-  color: #7DFFAF;
+  color: var(--primary-color);
   text-align: center;
 }
