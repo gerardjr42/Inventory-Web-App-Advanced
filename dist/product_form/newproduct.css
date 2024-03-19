@@ -1,0 +1,77 @@
+/* Styling for New Products */
+.section-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-header {
+  width: 550px;
+  text-align: end;
+  font-size: 2.3rem;
+  font-weight: normal;
+  padding: 0;
+  margin: 0;
+}
+
+/* Add border and fix aspect ratio */
+/* img {
+  border: 5px solid #00b5f1;
+  width: 170px;
+  height: 255px;
+} */
+
+
+/* sizing of input text */
+.text {
+  width: 550px;
+  height: 25px;
+  margin: 5px 0px 10px 0px;
+}
+
+form label {
+  margin-bottom: 30px;
+}
+
+/* Add color to buttons */
+button {
+  border-radius: 5px;
+  padding: 10px 50px;
+  font-weight: bold;
+  border-style: none;
+}
+
+.form-reset button {
+  background: #dcdcdc;
+  color: black;
+  margin-right: 10px;
+}
+
+.form-submit button {
+  background: #3dbaef;
+  color: black;
+}
+
+.form-buttons {
+  display: flex;
+  margin-top: 20px;
+}
+
+.error {
+  display: inline;
+  background: #f53641;
+  border-radius: 5px;
+  margin-right: auto;
+  margin-left: auto;
+  color: white;
+  width: 550px;
+}
+
+li {
+  margin: 8px 0px;
+}
+
+/* Add lines and adjust width */
+.line {
+  width: 560px;
+}

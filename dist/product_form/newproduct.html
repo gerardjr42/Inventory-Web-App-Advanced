@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="newproduct.css">
+  <script src="newproduct.js" defer></script>
+  <title>☘️ Clover - Add Products</title>
+</head>
+<body>
+  <section class="section-form">
+    <h1 class="form-header section-headers">Add New Book</h1><hr class="line">
+    <br>
+    <form>
+      <div class="form-name">
+        <label for="name">Name</label><br>
+        <input type="text" class="text" id="name" name="name" required>
+      </div>
+      <div class="form-author">
+        <label for="author">Author</label><br>
+        <input type="text" class="text" id="author" name="author" required>
+      </div>
+      <div class="form-imageURL">
+        <label for="imageURL">Image URL</label><br>
+        <input type="text" class="text" id="imageURL" name="imageURL" required>
+      </div>
+      <div class="form-price">
+        <label for="price">Price</label><br>
+        <input type="text" class="text" id="price" name="price" required placeholder="$">
+      </div>
+      <div class="form-InStock">
+        <label for="In-Stock">In Stock</label><br>
+        <select class="text" name="In-Stock" id="In-Stock">
+          <option value="default">--Select One--</option>
+          <option value="In Stock">Yes</option>
+          <option value="Out Of Stock">No</option>
+        </select>
+        <div class="form-buttons">
+        <div class="form-reset">
+          <button type="reset" id="reset" name="reset" aria-label="Reset Button">Reset</button>
+        </div>
+        <div class="form-submit">
+          <button type="submit" id="submit" name="submit" aria-label="Submit Button">Submit</button>
+        </div>
+        </div>
+      </div>
+    </form>
+  </section>
+</body>
+</html>
