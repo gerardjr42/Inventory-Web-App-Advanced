@@ -258,7 +258,9 @@ body.dark .moon {
   transition: all 0.3s ease;
 }
 
-.sidebar.close ~ .main-content {
+/* Add all body classes for each page here */
+.sidebar.close ~ .main-content,
+.sidebar.close ~ .container {
   left: 88px;
   width: calc(100% - 88px);
 } 
@@ -279,7 +281,8 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 /* ----Main---- */
-.main-content {
+.main-content,
+.container {
   position: relative;
   left: 250px;
   height: 100vh;

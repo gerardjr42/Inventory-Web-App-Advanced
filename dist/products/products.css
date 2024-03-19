@@ -1,1 +1,84 @@
 @import url(../home/main.css);
+
+.item-img img {
+  width: 100px;
+}
+
+/* Zebra Stripes */
+tr:nth-child(even) {
+  background-color: var(--body-color1);
+}
+tr:nth-child(odd) {
+  background-color: #3E8058;
+}
+th {
+  background-color: var(--primary-color);
+  color: #000000;
+}
+
+/* Vertical Alignment */
+td {
+  vertical-align: text-top;
+}
+th {
+  vertical-align: bottom;
+}
+
+/* Horizontal Alignment */
+th,
+td {
+  text-align: left;
+  padding: 0.125em 0.5em 0.25em 1em;
+  line-height: 1;
+  text-indent: -0.5em;
+}
+
+td:nth-of-type(6) {
+  text-align: "." center; 
+}
+
+table {
+  font-variant-numeric: lining-nums tabular-nums;
+  border-collapse: collapse;
+}
+
+/* caption position */
+caption { 
+  caption-side: top; 
+}
+
+/* Printing table format */
+@media print {
+  body {
+    font-size: 6pt;
+    color: #000;
+    background-color: #fff;
+    background-image: none;
+    margin: 0;
+    padding: 0;
+  }
+  table {
+    page-break-inside: avoid;
+  }
+  th {
+    color: #000;
+    background-color: #fff;
+    border-bottom: 1pt solid #000;
+  }
+  tr {
+    border-top: 1pt solid #000;
+  }
+}
+@media print and (max-width: 5in) {
+  table {
+    page-break-inside: auto;
+  }
+  tr {
+    page-break-inside: avoid;
+  }
+  caption {
+    color: #000;
+    background-color: #fff;
+    border-bottom: 1pt solid #000;
+  }
+}
