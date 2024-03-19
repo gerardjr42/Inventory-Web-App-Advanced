@@ -4,10 +4,89 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="newproduct.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <script src="../home/main.js" defer></script>
   <script src="newproduct.js" defer></script>
   <title>☘️ Clover - Add Products</title>
 </head>
 <body>
+  <!-- SideBar -->
+  <nav class="sidebar close">
+    <header>
+      <div class="sidebar__img">
+        <!--image-text-->
+        <img src="../images/logo.png" alt="logo" />
+        <div class="sidebar__text">
+          <!--text header-text-->
+          <span class="side-bar__name nav-text">Clover Stock</span>
+          <span class="sidebar__profession nav-text">Web Developer</span>
+        </div>
+      </div>
+      <img src="../images/arrow.png" alt="arrow" class="toggle" />
+    </header>
+
+    <div class="menu-bar">
+      <div class="menu">
+        <ul class="menu-links">
+          <li class="nav-links">
+              <i class='bx bx-search-alt-2 icons sidebar-icons' ></i>
+              <label for="search"></label>
+              <input type="search" name="search"
+              id="search" class="nav-text" placeholder="Search...">
+          </li>
+          <li class="nav-links">
+            <a href="../home/main.html">
+              <i class='bx bx-home-alt sidebar-icons'></i>
+              <span class="nav-text">Home</span>
+            </a>
+          </li>
+          <li class="nav-links">
+            <a href="newproduct.html">
+              <i class='bx bx-book-add sidebar-icons' ></i>
+              <span class="nav-text">Add New Product</span>
+              </a>
+          </li>
+          <li class="nav-links">
+            <a href="../products/products.html">
+              <i class='bx bx-bar-chart-alt-2 sidebar-icons'></i>
+              <span class="nav-text">Inventory</span>
+            </a>
+          </li>
+          <li class="nav-links">
+            <a href="../categories/categories.html">
+              <i class='bx bx-category-alt sidebar-icons'></i>
+              <span class="nav-text">Categories</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="bottom-content">
+        <ul class="menu-links">
+        <li class="nav-links">
+          <a href="#">
+            <i class='bx bx-log-out sidebar-icons'></i>
+            <span class="nav-text">Logout</span>
+          </a>
+        </li>
+
+        <li class="mode">
+          <div class="moon-sun">
+            <i class="bx bx-moon sidebar-icons moon"></i>
+            <i class="bx bx-sun sidebar-icons sun"></i>
+          </div>
+          <span class="mode-text text">Dark Mode</span>
+
+          <div class="toggle-switch">
+            <span class="switch"></span>
+          </div>
+        </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- End of Sidebar -->
+  <div id="sidebar-container"></div> <!--Sidebar injection-->
   <section class="section-form">
     <h1 class="form-header section-headers">Add New Book</h1><hr class="line">
     <br>

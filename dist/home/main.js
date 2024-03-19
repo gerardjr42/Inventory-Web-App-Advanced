@@ -12,11 +12,11 @@ const create = function(args) {
 }
 
 HTMLElement.prototype.on = function(a, b, c) {
-  this.addEventListener(a, b, c);
+  return this.addEventListener(a, b, c);
 };
 
 HTMLElement.prototype.off = function(a,b,c) {
-  this.removeEventListener(a,b,c);
+  return this.removeEventListener(a,b,c);
 }
 
 HTMLElement.prototype.$ = function(a,b,c) {
@@ -24,7 +24,7 @@ HTMLElement.prototype.$ = function(a,b,c) {
 }
 
 HTMLElement.prototype.$$ = function(a,b,c) {
-  this.querySelectorAll(a,b,c);
+  return this.querySelectorAll(a,b,c);
 }
 
   //custom eventListener
@@ -55,3 +55,6 @@ modeSwitch.on("click", () => {
 toggle.on("click", () => {
   sidebar.classList.toggle("close");
 });
+
+
+
