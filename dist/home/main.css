@@ -20,6 +20,7 @@
   --toggle-color: #000000;
   --sidebar-color1: #002a1c;
   --sidebar-color2: #000f0a;
+  --table-color1: white;
 }
 
 
@@ -43,6 +44,7 @@ body.dark {
   --toggle-color: #ffffff;
   --sidebar-color1: #30b88a;
   --sidebar-color2: #035539;
+  --table-color1: white;
 }
 
 header {

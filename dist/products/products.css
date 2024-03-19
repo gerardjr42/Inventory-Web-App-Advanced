@@ -1,53 +1,72 @@
 @import url(../home/main.css);
 
-.item-img img {
-  width: 100px;
-}
-
-/* Zebra Stripes */
-tr:nth-child(even) {
-  background-color: var(--body-color1);
-}
-tr:nth-child(odd) {
-  background-color: #3E8058;
-}
-th {
-  background-color: var(--primary-color);
-  color: #000000;
-}
-
-/* Vertical Alignment */
-td {
-  vertical-align: text-top;
-}
-th {
-  vertical-align: bottom;
-}
-
-/* Horizontal Alignment */
-th,
-td {
-  text-align: left;
-  padding: 0.125em 0.5em 0.25em 1em;
-  line-height: 1;
-  text-indent: -0.5em;
-}
-
-td:nth-of-type(6) {
-  text-align: "." center; 
-}
 
 table {
-  font-variant-numeric: lining-nums tabular-nums;
+  width: 100%;
   border-collapse: collapse;
+  color: var(--table-color1);
 }
 
-/* caption position */
-caption { 
-  caption-side: top; 
+tr:nth-child(even) {
+  background-color: #000f0a;
+}
+tr:nth-child(odd) {
+  background-color: #124929;
+}
+th {
+  background-color: #189541;
 }
 
-/* Printing table format */
+
+
+caption,
+th,
+td {
+  padding: 1rem;
+}
+
+caption,
+th {
+  text-align: left;
+}
+
+caption {
+  background: hsl(0, 0%, 0%);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* scrollbar */
+@media (max-width: 650px) {
+  /* Add img here on right side of list */
+  th {
+    display: none;
+  }
+
+  td {
+    display: grid;
+    grid-template-columns: 15ch auto;
+    padding: 0.75rem 1rem;
+    gap: 0.5rem;
+  }
+
+  td:first-child {
+    padding-top: 1.5rem;
+  }
+
+  td:last-child {
+    padding-bottom: 1.5rem;
+  }
+
+  td::before {
+    content: attr(data-cell) ": ";
+    font-weight: 700;
+    text-transform: capitalize;
+  }
+}
+
+/* Printing Styling */
 @media print {
   body {
     font-size: 6pt;
@@ -69,6 +88,7 @@ caption {
     border-top: 1pt solid #000;
   }
 }
+
 @media print and (max-width: 5in) {
   table {
     page-break-inside: auto;

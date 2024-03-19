@@ -1,139 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="products.css">
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-  <script src="../home/main.js" defer></script>
-  <script src="products.js" defer></script>
-  <title>☘️ Products</title>
-</head>
-<body>
-  <!-- SideBar -->
-  <nav class="sidebar close">
-    <header>
-      <div class="sidebar__img">
-        <!--image-text-->
-        <img src="../images/logo.png" alt="logo" />
-        <div class="sidebar__text">
-          <!--text header-text-->
-          <span class="side-bar__name nav-text">Clover Stock</span>
-          <span class="sidebar__profession nav-text">Web Developer</span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="products.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <script src="../home/main.js" defer></script>
+    <script src="products.js" defer></script>
+    <title>☘️ Products</title>
+  </head>
+  <body>
+    <!-- SideBar -->
+    <nav class="sidebar close">
+      <header>
+        <div class="sidebar__img">
+          <!--image-text-->
+          <img src="../images/logo.png" alt="logo" />
+          <div class="sidebar__text">
+            <!--text header-text-->
+            <span class="side-bar__name nav-text">Clover Stock</span>
+            <span class="sidebar__profession nav-text">Web Developer</span>
+          </div>
+        </div>
+        <img src="../images/arrow.png" alt="arrow" class="toggle" />
+      </header>
+
+      <div class="menu-bar">
+        <div class="menu">
+          <ul class="menu-links">
+            <li class="nav-links">
+              <i class="bx bx-search-alt-2 icons sidebar-icons"></i>
+              <label for="search"></label>
+              <input
+                type="search"
+                name="search"
+                id="search"
+                class="nav-text"
+                placeholder="Search..."
+              />
+            </li>
+            <li class="nav-links">
+              <a href="../home/main.html">
+                <i class="bx bx-home-alt sidebar-icons"></i>
+                <span class="nav-text">Home</span>
+              </a>
+            </li>
+            <li class="nav-links">
+              <a href="../product_form/newproduct.html">
+                <i class="bx bx-book-add sidebar-icons"></i>
+                <span class="nav-text">Add New Product</span>
+              </a>
+            </li>
+            <li class="nav-links">
+              <a href="products.html">
+                <i class="bx bx-bar-chart-alt-2 sidebar-icons"></i>
+                <span class="nav-text">Inventory</span>
+              </a>
+            </li>
+            <li class="nav-links">
+              <a href="../categories/categories.html">
+                <i class="bx bx-category-alt sidebar-icons"></i>
+                <span class="nav-text">Categories</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bottom-content">
+          <ul class="menu-links">
+            <li class="nav-links">
+              <a href="#">
+                <i class="bx bx-log-out sidebar-icons"></i>
+                <span class="nav-text">Logout</span>
+              </a>
+            </li>
+
+            <li class="mode">
+              <div class="moon-sun">
+                <i class="bx bx-moon sidebar-icons moon"></i>
+                <i class="bx bx-sun sidebar-icons sun"></i>
+              </div>
+              <span class="mode-text text">Dark Mode</span>
+
+              <div class="toggle-switch">
+                <span class="switch"></span>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
-      <img src="../images/arrow.png" alt="arrow" class="toggle" />
-    </header>
-
-    <div class="menu-bar">
-      <div class="menu">
-        <ul class="menu-links">
-          <li class="nav-links">
-              <i class='bx bx-search-alt-2 icons sidebar-icons' ></i>
-              <label for="search"></label>
-              <input type="search" name="search"
-              id="search" class="nav-text" placeholder="Search...">
-          </li>
-          <li class="nav-links">
-            <a href="../home/main.html">
-              <i class='bx bx-home-alt sidebar-icons'></i>
-              <span class="nav-text">Home</span>
-            </a>
-          </li>
-          <li class="nav-links">
-            <a href="../product_form/newproduct.html">
-              <i class='bx bx-book-add sidebar-icons' ></i>
-              <span class="nav-text">Add New Product</span>
-              </a>
-          </li>
-          <li class="nav-links">
-            <a href="products.html">
-              <i class='bx bx-bar-chart-alt-2 sidebar-icons'></i>
-              <span class="nav-text">Inventory</span>
-            </a>
-          </li>
-          <li class="nav-links">
-            <a href="../categories/categories.html">
-              <i class='bx bx-category-alt sidebar-icons'></i>
-              <span class="nav-text">Categories</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="bottom-content">
-        <ul class="menu-links">
-        <li class="nav-links">
-          <a href="#">
-            <i class='bx bx-log-out sidebar-icons'></i>
-            <span class="nav-text">Logout</span>
-          </a>
-        </li>
-
-        <li class="mode">
-          <div class="moon-sun">
-            <i class="bx bx-moon sidebar-icons moon"></i>
-            <i class="bx bx-sun sidebar-icons sun"></i>
-          </div>
-          <span class="mode-text text">Dark Mode</span>
-
-          <div class="toggle-switch">
-            <span class="switch"></span>
-          </div>
-        </li>
-        </ul>
-      </div>
+    </nav>
+    <!-- End of Sidebar -->
+    <!-- Start body products html here -->
+    <div class="container table-container">
+      <table>
+        <caption>
+          Inventory: Books
+        </caption>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Cover Type</th>
+        <th>Genre</th>
+        <th>ISBN</th>
+        <th>Price</th>
+        <th>Status</th>
+        <tr>
+          <td data-cell="title">Dune</td>
+          <td data-cell="author">Frank Herbert</td>
+          <td data-cell="cover-type">Hard Cover</td>
+          <td data-cell="genre">Science Fiction</td>
+          <td data-cell="ISBN">978-0425071601</td>
+          <td data-cell="Price">$8.29</td>
+          <td data-cell="Status">Out of Stock</td>
+        </tr>
+        <tr>
+          <td data-cell="title">Friday I'm in Love</td>
+          <td data-cell="author">Camryn Garret</td>
+          <td data-cell="cover-type">Hard Cover</td>
+          <td data-cell="genre">Young Adult</td>
+          <td data-cell="ISBN">978-0593435106</td>
+          <td data-cell="Price">$18.99</td>
+          <td data-cell="Status">In-Stock</td>
+        </tr>
+        <tr>
+          <td data-cell="title">Before We Disappear</td>
+          <td data-cell="author">Shaun David Hutchinson</td>
+          <td data-cell="cover-type">Hard Cover</td>
+          <td data-cell="genre">Science Fiction</td>
+          <td data-cell="ISBN">978-0063025226</td>
+          <td data-cell="Price">$13.00</td>
+          <td data-cell="Status">In-Stock</td>
+        </tr>
+        <tr>
+          <td data-cell="title">The Ender Sage</td>
+          <td data-cell="author">Orson Scott Card</td>
+          <td data-cell="cover-type">Mass-Market Paperback</td>
+          <td data-cell="genre">Science Fiction</td>
+          <td data-cell="ISBN">978-1250773135</td>
+          <td data-cell="Price">$27.49</td>
+          <td data-cell="Status">In-Stock</td>
+        </tr>
+      </table>
     </div>
-  </nav>
-  <!-- End of Sidebar -->
-  <!-- Start body products html here -->
-  <div class="container">
-  <!-- Draft for table -->
-  <table>
-    <caption>Inventory of Books</caption>
-    <th>Title</th>
-    <th>Author</th>
-    <th>Cover Type</th>
-    <th>Genre</th>
-    <th>ISBN</th>
-    <th>Price</th>
-    <th>Status</th>
-    <tr>
-      <td data-cell="title">Dune</td>
-      <td data-cell="author">Frank Herbert</td>
-      <td data-cell="cover-type">Hard Cover</td>
-      <td data-cell="genre">Science Fiction</td>
-      <td data-cell="ISBN">978-0425071601</td>
-      <td data-cell="Price">$8.29</td>
-      <td data-cell="Status">Out of Stock</td>
-    </tr>
-    <tr>
-      <td data-cell="title">Friday I'm in Love</td>
-      <td data-cell="author">Camryn Garret</td>
-      <td data-cell="cover-type">Hard Cover</td>
-      <td data-cell="genre">Young Adult</td>
-      <td data-cell="ISBN">978-0593435106</td>
-      <td data-cell="Price">$18.99</td>
-      <td data-cell="Status">In-Stock</td>
-    </tr>
-    <tr>
-      <td data-cell="title">Before We Disappear</td>
-      <td data-cell="author">Shaun David Hutchinson</td>
-      <td data-cell="cover-type">Hard Cover</td>
-      <td data-cell="genre">Science Fiction</td>
-      <td data-cell="ISBN">978-0063025226</td>
-      <td data-cell="Price">$13.00</td>
-      <td data-cell="Status">In-Stock</td>
-    </tr>
-    <tr>
-      <td data-cell="title">The Ender Sage</td>
-      <td data-cell="author">Orson Scott Card</td>
-      <td data-cell="cover-type">Mass-Market Paperback</td>
-      <td data-cell="genre">Science Fiction</td>
-      <td data-cell="ISBN">978-1250773135</td>
-      <td data-cell="Price">$27.49</td>
-      <td data-cell="Status">In-Stock</td>
-    </tr> 
-  </table>
-</body>
+  </body>
 </html>
