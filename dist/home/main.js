@@ -44,6 +44,12 @@ const modeText = body.$(".mode-text");
 
 modeSwitch.on("click", () => {
   body.classList.toggle("dark");
+
+  if(body.classList.contains("dark")) {
+    modeText.innerText = "Light Mode"
+  } else {
+    modeText.innerText = "Dark Mode"
+  }
 });
 
 toggle.on("click", () => {

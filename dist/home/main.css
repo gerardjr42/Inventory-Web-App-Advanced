@@ -89,6 +89,7 @@ header {
   padding: 10px 14px;
   background: linear-gradient(270deg, var(--sidebar-color1), var(--sidebar-color2));
   transition: all 0.3s ease;
+  z-index: 100;
 }
 
 .sidebar.close {
@@ -111,6 +112,10 @@ header {
 
 .sidebar__profession {
   margin-top: -2px;
+}
+
+.sidebar .menu {
+  margin-top: 35px;
 }
 
 .toggle {
@@ -175,8 +180,11 @@ header {
   border-radius: 6px;
   height: 25px;
   border: none;
-  /* opacity: 20%; */
   background: #344B43;
+  font-size: 16px;
+  width: 80%;
+  color: white;
+  font-weight: bold;
 }
 
 .menu-links {
@@ -203,6 +211,7 @@ header {
 
 .mode i{
   position: absolute;
+  transition: all 0.3s ease;
 }
 
 /* Toggle the icon for dark/light mode */
@@ -210,14 +219,20 @@ header {
   opacity:0;
 }
 
+body.dark .sun {
+  opacity: 1;
+}
+
+body.dark .moon {
+  opacity: 0;
+}
+
 .toggle-switch {
   position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
   min-width: 60px;
-  /* margin-left: 120px; */
   right: 20px;
 }
 
@@ -243,20 +258,47 @@ header {
   transition: all 0.3s ease;
 }
 
+.sidebar.close ~ .main-content {
+  left: 88px;
+  width: calc(100% - 88px);
+} 
+
 body.dark .switch::before {
   left: 24px;
 }
 
+/* Style search input icon */
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background-image: url(../images/x-icon-green.png);
+  background-size: contain;
+  cursor: pointer;
+}
+
 /* ----Main---- */
+.main-content {
+  position: relative;
+  left: 250px;
+  height: 100vh;
+  width: calc(100% - 250px);
+  transition: all 0.5s ease;
+}
+
 .main-title {
   display: flex;
   font-size: 7rem;
-  font-weight: 400;
+  font-weight: 500;
   color: var(--primary-color);
+  margin-top: 0;
   justify-content: center;
-  margin-left: 155px;
 }
 
+
+
+/* Media Queries */
 @media (width <= 650px) {
   .main-title {
     font-size: 4rem;
