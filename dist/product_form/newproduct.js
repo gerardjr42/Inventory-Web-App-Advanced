@@ -94,7 +94,7 @@ form.on("submit", (event) => {
     section.remove();
   } else {
     bookTitle.textContent = title.value;
-    // titleCell.innerText = title.value;
+    titleCell.innerText = title.value;
   };
 
   //Author error statement
@@ -105,7 +105,7 @@ form.on("submit", (event) => {
     section.remove();
   } else {
     bookAuthor.textContent = author.value;
-    // authorCell.innerText = author.value;
+    authorCell.innerText = author.value;
   };
 
   const genres = ["Fantasy", "Science Fiction", "Mystery", "Thriller", "Romance", "Historical Fiction", "Horror", "Young Adult", "Non-Fiction", "Biography", "Self-Help", "Fiction"];
@@ -118,7 +118,7 @@ form.on("submit", (event) => {
     section.remove();
   } else {
     bookGenre.textContent = genre.value;
-    // genreCell.innerText = genre.value;
+    genreCell.innerText = genre.value;
   };
 
   //Price error statement
@@ -129,7 +129,7 @@ form.on("submit", (event) => {
     section.remove();
   } else {
     bookPrice.textContent = `$${price.value}`;
-    // priceCell.innerHTML = `$${price.value}`;
+    priceCell.innerHTML = `$${price.value}`;
   };
 
   //Stock error statement
@@ -140,7 +140,7 @@ form.on("submit", (event) => {
     section.remove();
     } else {
       bookStock.textContent = stock.value;
-      // stockCell.innerText = stock.value;
+      stockCell.innerText = stock.value;
     };
 
     addGlobalEventListener("click", ".item__stock", e => {
@@ -168,7 +168,7 @@ form.on("submit", (event) => {
       section.remove();
     } else {
       bookCover.textContent = cover.value;
-      // coverCell.innerText = cover.value;
+      coverCell.innerText = cover.value;
     }
 
     //Book ISBN Error
@@ -179,10 +179,9 @@ form.on("submit", (event) => {
       section.remove();
     } else {
       bookISBN.textContent = isbn.value
-      // isbnCell.innerText = isbn.value;
+      isbnCell.innerText = isbn.value;
     }
-    
-    table.appendChild(tr);
+    // table.appendChild(tr);
     form.reset();
 });
 
