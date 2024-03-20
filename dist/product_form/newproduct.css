@@ -9,7 +9,7 @@
 
 /* Add border and fix aspect ratio */
 .item-img img {
-  border: 5px solid #00B5F1;
+  border: 5px solid var(--primary-color);
   width: 170px;
   height: 255px;
 }
@@ -117,6 +117,7 @@ button {
   color:white;
   padding: 8px 15px;
   margin-top: 15px;
+  cursor: pointer;
 }
 
 /* Reset Button */
@@ -200,6 +201,43 @@ li {
 /* Moves "Add New Book" left */
 .form-header {
   width: 550px;
+}
+
+
+.counter {
+  display: inline-flex;
+  background: #CCCCCC;
+  color:white;
+  /* padding: 5px 0px 8px 0px; */
+  height: 32px;
+  border-radius: 5px;
+  margin-left: 10px;
+  align-items: center;
+  justify-content: center;
+
+  .increment {
+    background: #04bc69;
+    opacity: 80%;
+    border-radius: 3px;
+    padding: 6px 5px 8px 5px;
+    cursor: pointer;
+  } 
+
+  .decrement {
+    background: #04bc69;
+    opacity: 80%;
+    border-radius: 3px;
+    padding: 2px 6px 7px 6px;
+
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  .num {
+    padding: 0px 3px;
+    pointer-events: none;
+    color: black;
+  }
 }
 
 /* media queries */

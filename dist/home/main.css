@@ -301,8 +301,6 @@ input[type="search"]::-webkit-search-cancel-button {
   justify-content: center;
 }
 
-
-
 /* Media Queries */
 @media (width <= 650px) {
   .main-title {
