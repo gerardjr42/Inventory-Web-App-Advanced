@@ -12,6 +12,7 @@ const reset = $("#reset");
 const submit = $("#submit");
 const container = $(".section-container");
 const sectionForm = $(".section-form");
+const table = $("table");
 
 const ul = create("ul");
 ul.className = "error";
@@ -20,6 +21,7 @@ sectionForm.appendChild(ul);
 form.on("submit", (event) => {
   event.preventDefault();
 
+  //Add Section Form
   const section = create("section");
   section.className = "section-item";
   section.innerHTML = `
@@ -41,6 +43,19 @@ form.on("submit", (event) => {
     </div>
   `;
 
+  //Add Table Implementation
+  const tr = create("tr");
+  tr.innerHTML = `
+  <td data-cell="title"></td>
+  <td data-cell="author"></td>
+  <td data-cell="cover-type"></td>
+  <td data-cell="genre"></td>
+  <td data-cell="ISBN"></td>
+  <td data-cell="Price"></td>
+  <td data-cell="Status"></td>
+`;
+
+  //Book variables
   const bookTitle = section.$(".item__title");
   const bookAuthor = section.$(".item__author");
   const bookGenre = section.$(".item__genre");
@@ -49,13 +64,21 @@ form.on("submit", (event) => {
   const bookCover = section.$(".item__cover")
   const bookStock = section.$(".item__stock");
   const bookImg = section.$(".item__src"); 
+  
+  //Table variables
+  const titleCell = tr.$('[data-cell="title"]');
+  const authorCell = tr.$('[data-cell="author"]');
+  const coverCell = tr.$('[data-cell="cover-type"]');
+  const genreCell = tr.$('[data-cell="genre"]');
+  const isbnCell = tr.$('[data-cell="ISBN"]');
+  const priceCell = tr.$('[data-cell="Price"]');
+  const stockCell = tr.$('[data-cell="Status"]');
 
   //Append section to container, below appends to end
   // container.appendChild(section);
 
   //Append section to container, below appends to start
   container.insertBefore(section, container.firstChild);
-
 
   //Reset innerHTML from ul for each error submission
   ul.innerHTML = "";
@@ -70,7 +93,8 @@ form.on("submit", (event) => {
     ul.appendChild(li);
     section.remove();
   } else {
-    bookTitle.innerText = title.value;
+    bookTitle.textContent = title.value;
+    // titleCell.innerText = title.value;
   };
 
   //Author error statement
@@ -80,7 +104,8 @@ form.on("submit", (event) => {
     ul.appendChild(li);
     section.remove();
   } else {
-    bookAuthor.innerText = author.value;
+    bookAuthor.textContent = author.value;
+    // authorCell.innerText = author.value;
   };
 
   const genres = ["Fantasy", "Science Fiction", "Mystery", "Thriller", "Romance", "Historical Fiction", "Horror", "Young Adult", "Non-Fiction", "Biography", "Self-Help", "Fiction"];
@@ -92,7 +117,8 @@ form.on("submit", (event) => {
     ul.appendChild(li);
     section.remove();
   } else {
-    bookGenre.innerText = genre.value;
+    bookGenre.textContent = genre.value;
+    // genreCell.innerText = genre.value;
   };
 
   //Price error statement
@@ -102,7 +128,8 @@ form.on("submit", (event) => {
     ul.appendChild(li);
     section.remove();
   } else {
-    bookPrice.innerText = `$${price.value}`;
+    bookPrice.textContent = `$${price.value}`;
+    // priceCell.innerHTML = `$${price.value}`;
   };
 
   //Stock error statement
@@ -112,11 +139,12 @@ form.on("submit", (event) => {
     ul.appendChild(li);
     section.remove();
     } else {
-      bookStock.innerText = stock.value;
+      bookStock.textContent = stock.value;
+      // stockCell.innerText = stock.value;
     };
 
     addGlobalEventListener("click", ".item__stock", e => {
-      e.target.innerText = e.target.innerText === "Out of Stock" ? "In Stock" : "Out of Stock";
+      e.target.textContent = e.target.textContent === "Out of Stock" ? "In Stock" : "Out of Stock";
       e.target.classList.toggle("In-Stock");
     });
 
@@ -128,7 +156,7 @@ form.on("submit", (event) => {
       ul.append(li);
       section.remove();
     } else {
-      bookImg.src = imgURL.value
+      bookImg.src = imgURL.value;
     };
 
 
@@ -139,7 +167,8 @@ form.on("submit", (event) => {
       ul.appendChild(li);
       section.remove();
     } else {
-      bookCover.innerText = cover.value;
+      bookCover.textContent = cover.value;
+      // coverCell.innerText = cover.value;
     }
 
     //Book ISBN Error
@@ -149,8 +178,11 @@ form.on("submit", (event) => {
       ul.appendChild("li");
       section.remove();
     } else {
-      bookISBN.innerText = isbn.value
+      bookISBN.textContent = isbn.value
+      // isbnCell.innerText = isbn.value;
     }
+    
+    table.appendChild(tr);
     form.reset();
 });
 
