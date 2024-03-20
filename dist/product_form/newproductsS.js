@@ -1,5 +1,7 @@
+window.addEventListener("DOMContentLoaded", () => {
+
 //Query Select Form Inputs
-const form = $(".form-list");
+const form = $(".form-List");
 const title = $("#title");
 const author = $("#author");
 const genre = $("#genre");
@@ -8,18 +10,83 @@ const isbn = $("#isbn");
 const cover = $("#cover");
 const imgURL = $("#imageURL");
 const stock = $("#In-Stock");
-const reset = $("#reset");
+const reset = $("#resetBtn");
 const submit = $("#submit");
 const container = $(".section-container");
 const sectionForm = $(".section-form");
-const table = $("table");
+// const table = $("table");
 
 const ul = create("ul");
 ul.className = "error";
 sectionForm.appendChild(ul);
 
-form.on("submit", (event) => {
+// Function to save form data into localStorage
+function saveFormData() {
+  const formData = {
+    title: title.value,
+    author: author.value,
+    genre: genre.value,
+    price: price.value,
+    isbn: isbn.value,
+    cover: cover.value,
+    imgURL: imgURL.value,
+    stock: stock.value
+  };
+
+  // Convert formData object to JSON string
+  const jsonData = JSON.stringify(formData);
+
+  // Save JSON string to localStorage
+  localStorage.setItem('formData', jsonData);
+}
+
+// Function to load form data from localStorage and populate the table
+function loadFormData() {
+  const jsonData = localStorage.getItem('formData');
+  if (jsonData) {
+    const formData = JSON.parse(jsonData);
+    title.value = formData.title;
+    author.value = formData.author;
+    genre.value = formData.genre;
+    price.value = formData.price;
+    isbn.value = formData.isbn;
+    cover.value = formData.cover;
+    imgURL.value = formData.imgURL;
+    stock.value = formData.stock;
+
+    // Create a new row
+    const tableBody = document.$("#bookTable tbody");
+    const newRow = create("tr");
+    newRow.innerHTML = `
+      <td data-cell="title">${formData.title}</td>
+      <td data-cell="author">${formData.author}</td>
+      <td data-cell="cover-type">${formData.cover}</td>
+      <td data-cell="genre">${formData.genre}</td>
+      <td data-cell="ISBN">${formData.isbn}</td>
+      <td data-cell="Price">${formData.price}</td>
+      <td data-cell="Status">${formData.stock}</td>
+    `;
+    // Append the new row to the table
+    tableBody.appendChild(newRow);
+    
+  }
+}
+
+// Call loadFormData function when the page loads
+document.addEventListener('DOMContentLoaded', loadFormData);
+
+
+
+
+
+
+
+
+form.addEventListener("submit", (event) => {
   event.preventDefault();
+
+    // Call saveFormData function to save form data
+    saveFormData();
 
   //Add Section Form
   const section = create("section");
@@ -43,17 +110,6 @@ form.on("submit", (event) => {
     </div>
   `;
 
-  //Add Table Implementation
-  const tr = create("tr");
-  tr.innerHTML = `
-  <td data-cell="title"></td>
-  <td data-cell="author"></td>
-  <td data-cell="cover-type"></td>
-  <td data-cell="genre"></td>
-  <td data-cell="ISBN"></td>
-  <td data-cell="Price"></td>
-  <td data-cell="Status"></td>
-`;
 
   //Book variables
   const bookTitle = section.$(".item__title");
@@ -64,15 +120,6 @@ form.on("submit", (event) => {
   const bookCover = section.$(".item__cover")
   const bookStock = section.$(".item__stock");
   const bookImg = section.$(".item__src"); 
-  
-  //Table variables
-  const titleCell = tr.$('[data-cell="title"]');
-  const authorCell = tr.$('[data-cell="author"]');
-  const coverCell = tr.$('[data-cell="cover-type"]');
-  const genreCell = tr.$('[data-cell="genre"]');
-  const isbnCell = tr.$('[data-cell="ISBN"]');
-  const priceCell = tr.$('[data-cell="Price"]');
-  const stockCell = tr.$('[data-cell="Status"]');
 
   //Append section to container, below appends to end
   // container.appendChild(section);
@@ -94,7 +141,6 @@ form.on("submit", (event) => {
     section.remove();
   } else {
     bookTitle.textContent = title.value;
-    titleCell.innerText = title.value;
   };
 
   //Author error statement
@@ -105,7 +151,6 @@ form.on("submit", (event) => {
     section.remove();
   } else {
     bookAuthor.textContent = author.value;
-    authorCell.innerText = author.value;
   };
 
   const genres = ["Fantasy", "Science Fiction", "Mystery", "Thriller", "Romance", "Historical Fiction", "Horror", "Young Adult", "Non-Fiction", "Biography", "Self-Help", "Fiction"];
@@ -118,7 +163,6 @@ form.on("submit", (event) => {
     section.remove();
   } else {
     bookGenre.textContent = genre.value;
-    genreCell.innerText = genre.value;
   };
 
   //Price error statement
@@ -129,7 +173,6 @@ form.on("submit", (event) => {
     section.remove();
   } else {
     bookPrice.textContent = `$${price.value}`;
-    priceCell.innerHTML = `$${price.value}`;
   };
 
   //Stock error statement
@@ -140,7 +183,6 @@ form.on("submit", (event) => {
     section.remove();
     } else {
       bookStock.textContent = stock.value;
-      stockCell.innerText = stock.value;
     };
 
     addGlobalEventListener("click", ".item__stock", e => {
@@ -168,7 +210,6 @@ form.on("submit", (event) => {
       section.remove();
     } else {
       bookCover.textContent = cover.value;
-      coverCell.innerText = cover.value;
     }
 
     //Book ISBN Error
@@ -179,10 +220,8 @@ form.on("submit", (event) => {
       section.remove();
     } else {
       bookISBN.textContent = isbn.value
-      isbnCell.innerText = isbn.value;
     }
-    // table.appendChild(tr);
-    form.reset();
+    // form.reset();
 });
 
 addGlobalEventListener("click", "#remove", e => {
@@ -193,4 +232,7 @@ reset.addEventListener("click", (e) => {
   ul.innerHTML = "";
   ul.style.display = "none";
   form.reset();
+});
+
+
 });
