@@ -1,129 +1,291 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="newproduct.css">
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-  <script src="../home/main.js" defer></script>
-  <script src="newproduct.js" defer></script>
-  <title>☘️ Clover - Add Products</title>
-</head>
-<body>
-  <!-- SideBar -->
-  <nav class="sidebar close">
-    <header>
-      <div class="sidebar__img">
-        <!--image-text-->
-        <img src="../images/logo.png" alt="logo" />
-        <div class="sidebar__text">
-          <!--text header-text-->
-          <span class="side-bar__name nav-text">Clover Stock</span>
-          <span class="sidebar__profession nav-text">Web Developer</span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="newproduct.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <script src="../home/main.js" defer></script>
+    <script src="newproduct.js" defer></script>
+    <title>☘️ Clover - Add Products</title>
+  </head>
+  <body>
+    <!-- SideBar -->
+    <nav class="sidebar close">
+      <header>
+        <div class="sidebar__img">
+          <!--image-text-->
+          <img src="../images/logo.png" alt="logo" />
+          <div class="sidebar__text">
+            <!--text header-text-->
+            <span class="side-bar__name nav-text">Clover Stock</span>
+            <span class="sidebar__profession nav-text">Web Developer</span>
+          </div>
         </div>
-      </div>
-      <img src="../images/arrow.png" alt="arrow" class="toggle" />
-    </header>
+        <img src="../images/arrow.png" alt="arrow" class="toggle" />
+      </header>
 
-    <div class="menu-bar">
-      <div class="menu">
-        <ul class="menu-links">
-          <li class="nav-links">
-              <i class='bx bx-search-alt-2 icons sidebar-icons' ></i>
+      <div class="menu-bar">
+        <div class="menu">
+          <ul class="menu-links">
+            <li class="nav-links">
+              <i class="bx bx-search-alt-2 icons sidebar-icons"></i>
               <label for="search"></label>
-              <input type="search" name="search"
-              id="search" class="nav-text" placeholder="Search...">
-          </li>
-          <li class="nav-links">
-            <a href="../home/main.html">
-              <i class='bx bx-home-alt sidebar-icons'></i>
-              <span class="nav-text">Home</span>
-            </a>
-          </li>
-          <li class="nav-links">
-            <a href="newproduct.html">
-              <i class='bx bx-book-add sidebar-icons' ></i>
-              <span class="nav-text">Add New Product</span>
+              <input
+                type="search"
+                name="search"
+                id="search"
+                class="nav-text"
+                placeholder="Search..."
+              />
+            </li>
+            <li class="nav-links">
+              <a href="../home/main.html">
+                <i class="bx bx-home-alt sidebar-icons"></i>
+                <span class="nav-text">Home</span>
               </a>
-          </li>
-          <li class="nav-links">
-            <a href="../products/products.html">
-              <i class='bx bx-bar-chart-alt-2 sidebar-icons'></i>
-              <span class="nav-text">Inventory</span>
-            </a>
-          </li>
-          <li class="nav-links">
-            <a href="../categories/categories.html">
-              <i class='bx bx-category-alt sidebar-icons'></i>
-              <span class="nav-text">Categories</span>
-            </a>
-          </li>
-        </ul>
+            </li>
+            <li class="nav-links">
+              <a href="newproduct.html">
+                <i class="bx bx-book-add sidebar-icons"></i>
+                <span class="nav-text">Add New Product</span>
+              </a>
+            </li>
+            <li class="nav-links">
+              <a href="../products/products.html">
+                <i class="bx bx-bar-chart-alt-2 sidebar-icons"></i>
+                <span class="nav-text">Inventory</span>
+              </a>
+            </li>
+            <li class="nav-links">
+              <a href="../categories/categories.html">
+                <i class="bx bx-category-alt sidebar-icons"></i>
+                <span class="nav-text">Categories</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bottom-content">
+          <ul class="menu-links">
+            <li class="nav-links">
+              <a href="#">
+                <i class="bx bx-log-out sidebar-icons"></i>
+                <span class="nav-text">Logout</span>
+              </a>
+            </li>
+
+            <li class="mode">
+              <div class="moon-sun">
+                <i class="bx bx-moon sidebar-icons moon"></i>
+                <i class="bx bx-sun sidebar-icons sun"></i>
+              </div>
+              <span class="mode-text text">Dark Mode</span>
+
+              <div class="toggle-switch">
+                <span class="switch"></span>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
+    </nav>
+    <!-- End of Sidebar -->
+    <div class="container">
+      <header class="title-header">
+        <h1>Bookstore Inventory</h1>
+      </header>
+      <main>
+        <section class="section-form">
+          <h1 class="form-header section-headers">Add New Book</h1>
+          <hr class="line" />
+          <br />
+          <form>
+            <div class="form-name">
+              <label for="name">Title</label><br />
+              <input type="text" class="text" id="name" name="name" required />
+            </div>
+            <div class="form-author">
+              <label for="author">Author</label><br />
+              <input
+                type="text"
+                class="text"
+                id="author"
+                name="author"
+                required
+              />
+            </div>
+            <div class="form-genre">
+              <label for="genre">Genre</label><br />
+              <input
+                type="text"
+                class="text"
+                id="genre"
+                name="genre"
+                required
+              />
+            </div>
+            <div class="form-price">
+              <label for="price">Price</label><br />
+              <input
+                type="text"
+                class="text"
+                id="price"
+                name="price"
+                required
+                placeholder="$"
+              />
+            </div>
+            <div class="form-isbn">
+              <label for="isbn">ISBN</label><br />
+              <input type="text" class="text" id="isbn" name="isbn" required />
+            </div>
+            <div class="form-imageURL">
+              <label for="imageURL">Image URL</label><br />
+              <input
+                type="text"
+                class="text"
+                id="imageURL"
+                name="imageURL"
+                required
+              />
+            </div>
+            <div class="form-cover">
+              <!-- DropList for Cover type -->
+              <label for="cover">Cover Type</label><br />
+              <select class="text" name="cover" id="cover">
+                <option value="default">--Select One--</option>
+                <option value="Soft Cover">Soft Cover</option>
+                <option value="Hard Cover">Hard Cover</option>
+                <option value="MassMarket">MassMarket</option>
+              </select>
+            </div>
+            <!-- DropList for Stock Status -->
+            <div class="form-InStock">
+              <label for="In-Stock">In Stock</label><br />
+              <select class="text" name="In-Stock" id="In-Stock">
+                <option value="default">--Select One--</option>
+                <option value="In Stock">Yes</option>
+                <option value="Out Of Stock">No</option>
+              </select>
+            </div>
+            <div class="form-buttons">
+              <div class="form-reset">
+                <button
+                  type="reset"
+                  id="reset"
+                  name="reset"
+                  aria-label="Reset Button"
+                >
+                  Reset
+                </button>
+              </div>
+              <div class="form-submit">
+                <button
+                  type="submit"
+                  id="submit"
+                  name="submit"
+                  aria-label="Submit Button"
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
+          </form>
+        </section>
+        <div class="section-container">
+          <section class="section-item">
+            <div class="item-img">
+              <img
+                src="https://books.google.com/books/publisher/content?id=dSq_EAAAQBAJ&pg=PP1&img=1&zoom=3&hl=en&bul=1&sig=ACfU3U1kwaq2V30kvaTZopxEOUaNDxL2ig&w=1280"
+                alt="Book Title"
+              />
+            </div>
+            <div class="item-info">
+              <h1 class="item__title section-headers">Friday I'm in Love</h1>
+              <hr class="item__line" />
+              <h2 class="item__author">Camryn Garret</h2>
+              <h3 class="item__genre">Fiction</h3>
+              <h3 class="item__price">$18.99</h3>
+              <h4 class="item__isbn">978-0593435106</h4>
+              <h4 class="item__cover">Hard Cover</h4>
+              <h4 class="item__stock">In Stock</h4>
+              <br />
+              <label for="remove"></label>
+              <button id="remove" name="remove">Remove</button>
+            </div>
+          </section>
 
-      <div class="bottom-content">
-        <ul class="menu-links">
-        <li class="nav-links">
-          <a href="#">
-            <i class='bx bx-log-out sidebar-icons'></i>
-            <span class="nav-text">Logout</span>
-          </a>
-        </li>
+          <section class="section-item">
+            <div class="item-img">
+              <img
+                src="https://books.google.com/books/publisher/content?id=SUwREAAAQBAJ&pg=PP1&img=1&zoom=3&hl=en&bul=1&sig=ACfU3U1KiQmxZUrVWDI3nO1UUBsZF9u44A&w=1280"
+                alt="Book Title"
+              />
+            </div>
+            <div class="item-info">
+              <h1 class="item__title section-headers">Before We Disappear</h1>
+              <hr class="item__line" />
+              <h2 class="item__author">Shaun David Hutchinson</h2>
+              <h3 class="item__genre">Fiction</h3>
+              <h3 class="item__price">$17.99</h3>
+              <h4 class="item__isbn">978-0063025226</h4>
+              <h4 class="item__cover">Hard Cover</h4>
+              <h4 class="item__stock">In Stock</h4>
+              <br />
+              <label for="remove"></label>
+              <button id="remove" name="remove">Remove</button>
+            </div>
+          </section>
 
-        <li class="mode">
-          <div class="moon-sun">
-            <i class="bx bx-moon sidebar-icons moon"></i>
-            <i class="bx bx-sun sidebar-icons sun"></i>
-          </div>
-          <span class="mode-text text">Dark Mode</span>
+          <section class="section-item">
+            <div class="item-img">
+              <img
+                src="https://books.google.com/books/publisher/content?id=LEuHEAAAQBAJ&pg=PP1&img=1&zoom=3&hl=en&bul=1&sig=ACfU3U04vweZYFl_cbbX8uhSyh41P3RXaw&w=1280"
+                alt="Book Title"
+              />
+            </div>
+            <div class="item-info">
+              <h1 class="item__title section-headers">Station Eternity</h1>
+              <hr class="item__line" />
+              <h2 class="item__author">Mur Lafferty</h2>
+              <h3 class="item__genre">Fiction</h3>
+              <h3 class="item__price">$17.00</h3>
+              <h4 class="item__isbn">978-0593098110</h4>
+              <h4 class="item__cover">Hard Cover</h4>
+              <h4 class="item__stock">In Stock</h4>
+              <br />
+              <label for="remove"></label>
+              <button id="remove" name="remove">Remove</button>
+            </div>
+          </section>
 
-          <div class="toggle-switch">
-            <span class="switch"></span>
-          </div>
-        </li>
-        </ul>
-      </div>
+          <section class="section-item">
+            <div class="item-img">
+              <img
+                src="https://books.google.com/books/publisher/content?id=-hmtDwAAQBAJ&pg=PP1&img=1&zoom=3&hl=en&bul=1&sig=ACfU3U3Kqtk6F5Mh_c6RmWsq5MRYDMkbFQ&w=1280"
+                alt="Book Title"
+              />
+            </div>
+            <div class="item-info">
+              <h1 class="item__title section-headers">Dune</h1>
+              <hr class="item__line" />
+              <h2 class="item__author">Frank Herbert</h2>
+              <h3 class="item__genre">Science Fiction</h3>
+              <h3 class="item__price">$17.99</h3>
+              <h4 class="item__isbn">978-0143111580</h4>
+              <h4 class="item__cover">Hard Cover</h4>
+              <h4 class="item__stock">Out Of Stock</h4>
+              <br />
+              <label for="remove"></label>
+              <button id="remove" name="remove">Remove</button>
+            </div>
+          </section>
+        </div>
+      </main>
     </div>
-  </nav>
-  <!-- End of Sidebar -->
-  <div id="sidebar-container"></div> <!--Sidebar injection-->
-  <section class="section-form">
-    <h1 class="form-header section-headers">Add New Book</h1><hr class="line">
-    <br>
-    <form>
-      <div class="form-name">
-        <label for="name">Name</label><br>
-        <input type="text" class="text" id="name" name="name" required>
-      </div>
-      <div class="form-author">
-        <label for="author">Author</label><br>
-        <input type="text" class="text" id="author" name="author" required>
-      </div>
-      <div class="form-imageURL">
-        <label for="imageURL">Image URL</label><br>
-        <input type="text" class="text" id="imageURL" name="imageURL" required>
-      </div>
-      <div class="form-price">
-        <label for="price">Price</label><br>
-        <input type="text" class="text" id="price" name="price" required placeholder="$">
-      </div>
-      <div class="form-InStock">
-        <label for="In-Stock">In Stock</label><br>
-        <select class="text" name="In-Stock" id="In-Stock">
-          <option value="default">--Select One--</option>
-          <option value="In Stock">Yes</option>
-          <option value="Out Of Stock">No</option>
-        </select>
-        <div class="form-buttons">
-        <div class="form-reset">
-          <button type="reset" id="reset" name="reset" aria-label="Reset Button">Reset</button>
-        </div>
-        <div class="form-submit">
-          <button type="submit" id="submit" name="submit" aria-label="Submit Button">Submit</button>
-        </div>
-        </div>
-      </div>
-    </form>
-  </section>
-</body>
+  </body>
 </html>

@@ -1,41 +1,100 @@
 @import url(../home/main.css);
 
-/* Styling for New Products */
-.section-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.form-header {
-  width: 550px;
-  text-align: end;
-  font-size: 2.3rem;
-  font-weight: normal;
-  padding: 0;
-  margin: 0;
+/* Default to border-box to adjust measurements within elements */
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
 }
 
 /* Add border and fix aspect ratio */
-/* img {
-  border: 5px solid #00b5f1;
+.item-img img {
+  border: 5px solid #00B5F1;
   width: 170px;
   height: 255px;
-} */
+}
 
+/* Position images to right? */
+.item-img {
+  display: flex;
+  justify-content: right;
+  align-self: flex-end;
+}
 
-/* sizing of input text */
+.title-header {
+    background: var(--sidebar-color1);
+    color: white;
+    padding: 5px;
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+/* Set main to grid */
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  margin: 40px 50px 0px 40px;
+}
+
+/* Align Book images */
+.section-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  height: 600px;
+  overflow: auto;
+}
+
+/* Display flex for book img and text */
+.section-item {
+  display: flex;
+  margin-bottom: 80px;
+  padding-left: 50px;
+}
+
+.item-info {
+  padding-left: 20px;
+  margin: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.section-form {
+  /* display: flex; */
+  flex-direction: column;
+  padding-left: 50px;
+  grid-column: 2;
+  grid-row: 1;
+}
+
+/* Align title for form */
+.section-headers {
+  text-align: end;
+  font-size: 2.3rem;
+  font-weight: normal;
+  margin: 0;
+}
+
+/* Align items left */
+.item__title {
+  text-align: left;
+}
+
+/* sizing for form input text */
 .text {
   width: 550px;
   height: 25px;
   margin: 5px 0px 10px 0px;
 }
 
+/* Margin bottom for all text */
 form label {
   margin-bottom: 30px;
 }
 
-/* Add color to buttons */
+/* Button Sizing */
 button {
   border-radius: 5px;
   padding: 10px 50px;
@@ -43,37 +102,157 @@ button {
   border-style: none;
 }
 
+/* Remove Button */
+#remove {
+  background: #F53641;
+  color:white;
+  padding: 8px 15px;
+  margin-top: 15px;
+}
+
+/* Reset Button */
 .form-reset button {
-  background: #dcdcdc;
+  background: #DCDCDC;
   color: black;
   margin-right: 10px;
 }
 
+/* Submit Button */
 .form-submit button {
-  background: #3dbaef;
+  background: #3DBAEF;
   color: black;
 }
 
+/* Adjust Buttons vertically */
 .form-buttons {
   display: flex;
   margin-top: 20px;
 }
 
+/* Fix Fonts */
+h2 {
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1.75rem;
+  margin-top: 0;
+}
+
+h3.item__genre {
+  font-size: normal;
+  font-weight: 200;
+  margin-top: -15px;
+  margin-bottom: 20px;
+}
+
+h3.item__price {
+  font-size: normal;
+  font-weight: 200;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+h4 {
+  display: inline;
+  font-size: 0.75rem;
+  background: #DCDCDC;
+  border-radius: 5px;
+  padding: 5px 7px;
+  color: black;
+}
+
+/* Error Message Styling */
 .error {
   display: inline;
-  background: #f53641;
+  background: #F53641;
   border-radius: 5px;
-  margin-right: auto;
-  margin-left: auto;
+  margin-right: 300px;
   color: white;
-  width: 550px;
 }
 
 li {
   margin: 8px 0px;
 }
 
-/* Add lines and adjust width */
-.line {
-  width: 560px;
+/* Adjust line size and color */
+.item__line {
+  width: 350px;
+  border: none;
+  height: 2.5px;
+  background-color: #CCCCCC;
 }
+
+.line {
+  width: 550px;
+  border: none;
+  height: 2.5px;
+  background-color: #CCCCCC;
+  float: left
+}
+
+/* Moves "Add New Book" left */
+.form-header {
+  width: 550px;
+}
+
+/* media queries */
+@media(width <= 1400px) {
+  main {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .section-form {
+    grid-column: 1/3;
+    grid-row: 2;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .form-header {
+    margin-top: 40px;
+    text-align: center;
+  }
+
+  .text {
+    width: 500px;
+  }
+}
+  
+  @media(max-width: 800px) {
+    .form-header {
+      width: 350px;
+      text-align: right;
+      margin-top: 40px;
+    }
+
+    .text {
+      width: 400px;
+    }
+
+    .item__line {
+      width: 300px;
+    }
+
+    .line {
+      width: 400px
+    }
+  }
+
+  @media(max-width: 650px) {
+    .item-img img {
+      width: 100px;
+      height: auto;
+    }
+
+    .text {
+      width: 350px;
+    }
+  }
