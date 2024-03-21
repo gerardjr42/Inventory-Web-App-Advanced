@@ -1,5 +1,3 @@
-
-//With local Storage that works
 //Query Select Form Inputs
 const form = $(".form-List");
 const title = $("#title");
@@ -14,11 +12,36 @@ const reset = $("#resetBtn");
 const submit = $("#submit");
 const container = $(".section-container");
 const sectionForm = $(".section-form");
-// const table = $("table");
 
 const ul = create("ul");
 ul.className = "error";
 sectionForm.appendChild(ul);
+
+
+// Variable for innerHTML
+const sectionHTML = `
+<div class="item-img">
+  <img src="" alt="Book Title" class="item__src">
+</div>
+<div class="item-info">
+  <h1 class="item__title section-headers"></h1>
+  <hr class="item__line">
+  <h2 class="item__author"></h2>
+  <h3 class="item__genre"></h3>
+  <h3 class="item__price"></h3>
+  <h4 class="item__isbn"></h4>
+  <h4 class="item__cover"></h4>
+  <h4 class="item__stock"></h4>
+  <br>
+  <label for="remove"></label>
+  <button id="remove" name="remove" class="remove">Remove</button>
+  <div class="counter">
+    <span class="decrement">-</span>
+    <span class="num">01</span>
+    <span class="increment">+</span>
+  </div>
+</div>
+`;
 
 // Call loadFormData function when the page loads
 document.addEventListener("DOMContentLoaded", loadFormData);
@@ -27,13 +50,11 @@ document.addEventListener("DOMContentLoaded", loadFormData);
 function saveBookData(bookData) {
   // Retrieve existing book data from localStorage
   let books = JSON.parse(localStorage.getItem("books")) || [];
-
   // Add new book data to the array
   books.push(bookData);
-
   // Save updated book data back to localStorage
   localStorage.setItem("books", JSON.stringify(books));
-}
+};
 
 // Function to load book data from localStorage and recreate the lists
 function loadBookData() {
@@ -43,29 +64,7 @@ function loadBookData() {
     // Recreate list item for each book
     const section = document.createElement("section");
     section.className = "section-item";
-    section.innerHTML = `
-    <div class="item-img">
-      <img src="" alt="Book Title" class="item__src">
-    </div>
-    <div class="item-info">
-      <h1 class="item__title section-headers"></h1>
-      <hr class="item__line">
-      <h2 class="item__author"></h2>
-      <h3 class="item__genre"></h3>
-      <h3 class="item__price"></h3>
-      <h4 class="item__isbn"></h4>
-      <h4 class="item__cover"></h4>
-      <h4 class="item__stock"></h4>
-      <br>
-      <label for="remove"></label>
-      <button id="remove" name="remove" class="remove">Remove</button>
-      <div class="counter">
-        <span class="decrement">-</span>
-        <span class="num">01</span>
-        <span class="increment">+</span>
-      </div>
-    </div>
-  `;
+    section.innerHTML = sectionHTML;
 
     // Set the values for each book in the recreated list item
     const bookTitle = section.$(".item__title");
@@ -128,8 +127,8 @@ function loadFormData() {
     stock.value = formData.stock;
 
     // Create a new row
-    const tableBody = $("#bookTable");
-    const newRow = create("tr");
+    const tableBody = document.querySelector("#bookTable");
+    const newRow = document.createElement("tr");
     newRow.innerHTML = `
       <td data-cell="title">${formData.title}</td>
       <td data-cell="author">${formData.author}</td>
@@ -162,32 +161,11 @@ form.addEventListener("submit", (event) => {
     imgURL: imgURL.value,
     stock: stock.value,
   });
+
   //Add Section Form
   const section = create("section");
   section.className = "section-item";
-  section.innerHTML = `
-    <div class="item-img">
-      <img src="" alt="Book Title" class="item__src">
-    </div>
-    <div class="item-info">
-      <h1 class="item__title section-headers"></h1>
-      <hr class="item__line">
-      <h2 class="item__author"></h2>
-      <h3 class ="item__genre"></h3>
-      <h3 class="item__price"></h3>
-      <h4 class="item__isbn"></h4>
-      <h4 class="item__cover"></h4>
-      <h4 class="item__stock"></h4>
-      <br>
-      <label for="remove"></label>
-      <button id="remove" name="remove" class="remove">Remove</button>
-      <div class="counter">
-        <span class="decrement">-</span>
-        <span class="num">01</span>
-        <span class="increment">+</span>
-      </div>
-    </div>
-  `;
+  section.innerHTML = sectionHTML;
 
   //Book variables
   const bookTitle = section.$(".item__title");
@@ -275,7 +253,7 @@ form.addEventListener("submit", (event) => {
   if (!imgURL.value.startsWith("http")) {
     const li = create("li");
     li.textContent = "Image URL path does not exist";
-    ul.append(li);
+    ul.appendChild(li);
     section.remove();
   } else {
     bookImg.src = imgURL.value;
@@ -303,12 +281,14 @@ form.addEventListener("submit", (event) => {
   // form.reset();
 });
 
+//Toggle class for switching text color on stock option
 addGlobalEventListener("click", ".item__stock", (e) => {
   e.target.textContent =
     e.target.textContent === "Out of Stock" ? "In Stock" : "Out of Stock";
   e.target.classList.toggle("In-Stock");
 });
 
+//Incrementing on button
 addGlobalEventListener("click", ".increment", (e) => {
   const num = e.target.parentElement.$(".num");
   let i = parseInt(num.innerText);
@@ -317,6 +297,7 @@ addGlobalEventListener("click", ".increment", (e) => {
   num.innerText = i;
 });
 
+//Decrementing on button
 addGlobalEventListener("click", ".decrement", (e) => {
   const num = e.target.parentElement.$(".num");
   let i = parseInt(num.innerText);
@@ -327,6 +308,7 @@ addGlobalEventListener("click", ".decrement", (e) => {
   }
 });
 
+//Removing book from list and from local storage
 addGlobalEventListener("click", ".remove", (e) => {
   // Remove the corresponding book from the DOM
   const section = e.target.closest(".section-item");
@@ -334,7 +316,7 @@ addGlobalEventListener("click", ".remove", (e) => {
   
   // Remove the corresponding book from localStorage
   const books = JSON.parse(localStorage.getItem("books")) || [];
-  const bookTitle = section.querySelector(".item__title").textContent;
+  const bookTitle = section.$(".item__title").textContent;
   const index = books.findIndex(book => book.title === bookTitle);
   if (index !== -1) {
     books.splice(index, 1);
@@ -342,7 +324,7 @@ addGlobalEventListener("click", ".remove", (e) => {
   }
 });
 
-reset.addEventListener("click", (e) => {
+reset.addEventListener("click", () => {
   ul.innerHTML = "";
   ul.style.display = "none";
   form.reset();

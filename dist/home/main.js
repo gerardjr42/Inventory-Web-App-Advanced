@@ -11,8 +11,8 @@ const create = function (args) {
   return document.createElement(args);
 };
 
-HTMLElement.prototype.on = function (a, b, c) {
-  return this.addEventListener(a, b, c);
+HTMLElement.prototype.on = function (args) {
+  return this.addEventListener(args);
 };
 
 HTMLElement.prototype.off = function (a, b, c) {

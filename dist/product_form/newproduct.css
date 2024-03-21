@@ -240,6 +240,10 @@ li {
   }
 }
 
+.form-name {
+  margin-top: 10px;
+}
+
 /* media queries */
 @media(width <= 1400px) {
   main {
