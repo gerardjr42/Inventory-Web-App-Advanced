@@ -59,7 +59,7 @@ function saveBookData(bookData) {
 // Function to load book data from localStorage and recreate the lists
 function loadBookData() {
   const books = JSON.parse(localStorage.getItem("books")) || [];
-
+  console.log(books);
   books.forEach((bookData) => {
     // Recreate list item for each book
     const section = document.createElement("section");
@@ -125,21 +125,6 @@ function loadFormData() {
     cover.value = formData.cover;
     imgURL.value = formData.imgURL;
     stock.value = formData.stock;
-
-    // Create a new row
-    const tableBody = document.querySelector("#bookTable");
-    const newRow = document.createElement("tr");
-    newRow.innerHTML = `
-      <td data-cell="title">${formData.title}</td>
-      <td data-cell="author">${formData.author}</td>
-      <td data-cell="cover-type">${formData.cover}</td>
-      <td data-cell="genre">${formData.genre}</td>
-      <td data-cell="ISBN">${formData.isbn}</td>
-      <td data-cell="Price">${formData.price}</td>
-      <td data-cell="Status">${formData.stock}</td>
-    `;
-    // Append the new row to the table
-    tableBody.appendChild(newRow);
   }
 } 
 // Call loadFormData function when the page loads
