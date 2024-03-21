@@ -59,10 +59,10 @@ function saveBookData(bookData) {
 // Function to load book data from localStorage and recreate the lists
 function loadBookData() {
   const books = JSON.parse(localStorage.getItem("books")) || [];
-  console.log(books);
+  // console.log(books);
   books.forEach((bookData) => {
     // Recreate list item for each book
-    const section = document.createElement("section");
+    const section = create("section");
     section.className = "section-item";
     section.innerHTML = sectionHTML;
 
@@ -112,7 +112,7 @@ function saveFormData() {
   localStorage.setItem("formData", jsonData);
 }
 
-// Function to load form data from localStorage and populate the table
+// Function to load form data from
 function loadFormData() {
   const jsonData = localStorage.getItem("formData");
   if (jsonData) {
@@ -276,7 +276,7 @@ addGlobalEventListener("click", ".item__stock", (e) => {
 //Incrementing on button
 addGlobalEventListener("click", ".increment", (e) => {
   const num = e.target.parentElement.$(".num");
-  let i = parseInt(num.innerText);
+  let i = num.innerText
   i++;
   i = i < 10 ? "0" + i : i;
   num.innerText = i;
@@ -285,7 +285,7 @@ addGlobalEventListener("click", ".increment", (e) => {
 //Decrementing on button
 addGlobalEventListener("click", ".decrement", (e) => {
   const num = e.target.parentElement.$(".num");
-  let i = parseInt(num.innerText);
+  let i = num.innerText
   if (i > 1) {
     i--;
     i = i < 10 ? "0" + i : i;
