@@ -45,6 +45,8 @@ const sectionHTML = `
 
 // Call loadFormData function when the page loads
 document.addEventListener("DOMContentLoaded", loadFormData);
+// Call loadBookData function when the page loads
+document.addEventListener("DOMContentLoaded", loadBookData);
 
 // Function to save book data into localStorage
 function saveBookData(bookData) {
@@ -89,8 +91,7 @@ function loadBookData() {
     container.insertBefore(section, container.firstChild);
   });
 }
-// Call loadBookData function when the page loads
-document.addEventListener("DOMContentLoaded", loadBookData);
+
 
 // Function to save form data into localStorage
 function saveFormData() {
@@ -127,8 +128,6 @@ function loadFormData() {
     stock.value = formData.stock;
   }
 } 
-// Call loadFormData function when the page loads
-document.addEventListener("DOMContentLoaded", loadFormData);
 
 //Form Submission
 form.addEventListener("submit", (event) => {
@@ -276,7 +275,7 @@ addGlobalEventListener("click", ".item__stock", (e) => {
 //Incrementing on button
 addGlobalEventListener("click", ".increment", (e) => {
   const num = e.target.parentElement.$(".num");
-  let i = num.innerText
+  let i = parseInt(num.innerText);
   i++;
   i = i < 10 ? "0" + i : i;
   num.innerText = i;
@@ -285,7 +284,7 @@ addGlobalEventListener("click", ".increment", (e) => {
 //Decrementing on button
 addGlobalEventListener("click", ".decrement", (e) => {
   const num = e.target.parentElement.$(".num");
-  let i = num.innerText
+  let i = parseInt(num.innerText);
   if (i > 1) {
     i--;
     i = i < 10 ? "0" + i : i;
