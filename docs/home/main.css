@@ -37,8 +37,8 @@ body {
 
 /* Dark mode */
 body.dark {
-  --body-color1: #ffffff;
-  --body-color2: #ffffff;
+  --body-color1: #e3e3e3;
+  --body-color2: #e3e3e3;
   --primary-color: #7DFFAF;
   --text-color: #000000;
   --toggle-color: #ffffff;
